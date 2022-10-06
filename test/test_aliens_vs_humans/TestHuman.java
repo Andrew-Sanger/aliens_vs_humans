@@ -15,12 +15,13 @@ class TestHuman {
 	
 	@BeforeAll
 	public void testHumanSetup() {
-		this.testHuman = new Human("test");
+		this.testHuman = new Human("test", "testCountry");
 	}
 
 	@Test
-	void testHuman() {
-		assertEquals("test", this.testHuman.getEntityName());
+	public void testHomeCountry() {
+		this.testHuman.setHomeCountry("testCountry2");
+		assertEquals("testCountry2", this.testHuman.getHomeCountry());
 	}
 
 }

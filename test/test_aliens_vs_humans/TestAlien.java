@@ -15,12 +15,13 @@ class TestAlien {
 	
 	@BeforeAll
 	public void testAlienSetup() {
-		this.testAlien = new Alien("test");
+		this.testAlien = new Alien("test", "testPlanet");
 	}
 
 	@Test
-	void testAlien() {
-		assertEquals("test", this.testAlien.getEntityName());
+	public void testHomePlanet() {
+		this.testAlien.setHomePlanet("testPlanet2");
+		assertEquals("testPlanet2", this.testAlien.getHomePlanet());
 	}
 
 }
