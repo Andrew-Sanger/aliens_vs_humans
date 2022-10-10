@@ -15,7 +15,7 @@ class TestHuman {
 	
 	@BeforeAll
 	public void testHumanSetup() {
-		this.testHuman = new Human("test", "testCountry");
+		testHuman = new Human("test", "testCountry", 1);
 	}
 
 	@Test
@@ -23,5 +23,12 @@ class TestHuman {
 		this.testHuman.setHomeCountry("testCountry2");
 		assertEquals("testCountry2", this.testHuman.getHomeCountry());
 	}
-
+	
+	@Test
+	void testToString() {
+		testHuman.setAccuracy(50);
+		testHuman.setDodge(50);
+		assertEquals("ID:        H-1\nName:      test\nHitpoints: 100\nAccuracy:  50\nDodge:     50" 
+				+ "\nCountry:   testCountry", testHuman.toString());
+	}
 }

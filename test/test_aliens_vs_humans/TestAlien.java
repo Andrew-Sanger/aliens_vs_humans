@@ -15,7 +15,7 @@ class TestAlien {
 	
 	@BeforeAll
 	public void testAlienSetup() {
-		this.testAlien = new Alien("test", "testPlanet");
+		this.testAlien = new Alien("test", "testPlanet", 1);
 	}
 
 	@Test
@@ -23,5 +23,12 @@ class TestAlien {
 		this.testAlien.setHomePlanet("testPlanet2");
 		assertEquals("testPlanet2", this.testAlien.getHomePlanet());
 	}
-
+	
+	@Test
+	void testToString() {
+		testAlien.setAccuracy(50);
+		testAlien.setDodge(50);
+		assertEquals("ID:        A-1\nName:      test\nHitpoints: 100\nAccuracy:  50\nDodge:     50" 
+				+ "\nPlanet:    testPlanet", testAlien.toString());
+	}
 }
